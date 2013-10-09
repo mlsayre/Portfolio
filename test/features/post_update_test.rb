@@ -10,14 +10,14 @@ feature "updating a post" do
     # first(:link, "Show Post").click
     click_on "Edit"
     fill_in 'Title', with: 'blork'
-    fill_in 'Content', with: 'dorkablork boo'
+    fill_in 'Content', with: 'dorkablorkah boo'
 
     # When I submit the form
     click_on 'Update Post'
 
     # The I should see the new post
     page.text.must_include 'blork'
-    page.text.must_include 'dorkablork boo'
+    page.text.must_include 'dorkablorkah boo'
 
 
     # And a success message
