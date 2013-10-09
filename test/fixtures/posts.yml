@@ -1,10 +1,14 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  content: MyString
+mj:
+  title: Michael Jordan
+  content: Best basketballer ever!
 
-two:
-  title: MyString
-  content: MyString
+cd:
+  title: Clyde Drexler
+  content: The Glide! Woot!
+
+tp:
+  title: Terry Porter
+  content: Best point guard evar!

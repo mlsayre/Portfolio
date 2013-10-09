@@ -3,21 +3,21 @@ require "test_helper"
 feature "updating a post" do
   scenario "changes text as expected" do
 
-    post = Post.create(title: "Becoming a butterfly", content: "Means being able to fly.")
-    #Given a completed post form
+    post = Post.create(title: posts(:mj).title, content: posts(:mj).content)
+
     visit post_path(post)
     # the old way of doing it - finding first show link
     # first(:link, "Show Post").click
     click_on "Edit"
-    fill_in 'Title', with: 'blorky'
-    fill_in 'Content', with: 'dorkablorkah boo'
+    fill_in 'Title', with: posts(:cd).title
+    fill_in 'Content', with: posts(:cd).content
 
     # When I submit the form
     click_on 'Update Post'
 
-    # The I should see the new post
-    page.text.must_include 'blorky'
-    page.text.must_include 'dorkablorkah boo'
+    # Then the post should be changed
+    page.text.must_include posts(:cd).title
+    page.text.must_include posts(:cd).content
 
 
     # And a success message

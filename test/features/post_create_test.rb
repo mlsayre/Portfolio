@@ -6,15 +6,15 @@ feature "creating a post" do
     #Given a completed post form
     visit posts_path
     click_on "New Post"
-    fill_in 'Title', with: 'I love kitties'
-    fill_in 'Content', with: 'They have tails and whiskers'
+    fill_in 'Title', with: posts(:mj).title
+    fill_in 'Content', with: posts(:mj).content
 
     # When I submit the form
     click_on 'Create Post'
 
-    # The I should see the new post
-    page.text.must_include 'I love kitties'
-    page.text.must_include 'tails and whiskers'
+    # Then I should see the new post
+    page.text.must_include posts(:mj).title
+    page.text.must_include posts(:mj).content
 
 
     # And a success message
