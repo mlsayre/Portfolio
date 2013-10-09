@@ -9,14 +9,14 @@ feature "updating a post" do
     # the old way of doing it - finding first show link
     # first(:link, "Show Post").click
     click_on "Edit"
-    fill_in 'Title', with: 'blork'
+    fill_in 'Title', with: 'blorky'
     fill_in 'Content', with: 'dorkablorkah boo'
 
     # When I submit the form
     click_on 'Update Post'
 
     # The I should see the new post
-    page.text.must_include 'blork'
+    page.text.must_include 'blorky'
     page.text.must_include 'dorkablorkah boo'
 
 
