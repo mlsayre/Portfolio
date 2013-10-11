@@ -10,6 +10,7 @@ gem 'rake'
 gem 'minitest-rails-capybara'
 gem 'libv8'
 gem 'therubyracer'
+gem 'pg'
 
 group :development, :test do
 gem 'sqlite3'
