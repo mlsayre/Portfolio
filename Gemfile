@@ -9,6 +9,8 @@ gem 'sqlite3'
 gem 'bootstrap-sass-rails'
 gem 'rake'
 gem 'minitest-rails-capybara'
+gem 'libv8'
+gem 'therubyracer'
 
 group :development, :test do
 gem 'minitest-rails'
