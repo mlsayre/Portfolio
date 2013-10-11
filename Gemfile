@@ -5,7 +5,6 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'bootstrap-sass-rails'
 gem 'rake'
 gem 'minitest-rails-capybara'
@@ -13,6 +12,7 @@ gem 'libv8'
 gem 'therubyracer'
 
 group :development, :test do
+gem 'sqlite3'
 gem 'minitest-rails'
 gem 'launchy'
 end
