@@ -11,8 +11,8 @@ gem 'rake'
 gem 'minitest-rails-capybara'
 
 group :development, :test do
-  gem 'minitest-rails'
-  gem 'launchy'
+gem 'minitest-rails'
+gem 'launchy'
 end
 
 group :test do
