@@ -15,3 +15,5 @@
 //= require_tree .
 //= require twitter/bootstrap
 //= require bootstrap
+//= require sidebar
+//
