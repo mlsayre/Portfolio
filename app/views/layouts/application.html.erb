@@ -137,7 +137,11 @@
       </div>
     </div>
     <!-- /Call to Action -->
-
+<% flash.each do |key, value| %>
+    <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
     <!-- Footer -->
     <footer>
       <div class="container">
