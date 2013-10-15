@@ -23,10 +23,10 @@ feature "I want to add a portfolio item" do
   scenario "new project has invalid data" do
     # given invalid project data is entered in a form
     visit new_project_path
-    save_and_open_page
+    # save_and_open_page
     #click_on "New Project"
     fill_in "Name", with: "Q"
-    fill_in "Technologies used", with: ""
+    # fill_in "Technologies used", with: ""
 
     # when the form is submitted with a short name and missing tech field
     click_on "Create Project"
@@ -35,7 +35,7 @@ feature "I want to add a portfolio item" do
     current_path.must_match /projects$/
     page.text.must_include "Project could not be saved"
     page.text.must_include "Name is too short"
-    page.text.must_include "Technologies used is missing"
+    page.text.must_include "Technologies used can't be blank"
   end
 
 end
