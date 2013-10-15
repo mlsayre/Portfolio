@@ -13,11 +13,24 @@ class ProjectsController < ApplicationController
       flash[:notice] = "Project was successfully added."
       redirect_to @project
     else
-      # we'll get to this
+      render :action => new
     end
   end
 
   def show
     @project = Project.find(params[:id])
   end
+
+  def update
+    @project = Project.find(params[:id])
+
+    if @project.update_attributes(params[:project])
+      redirect_to @project, notice: 'Project was successfully updated.'
+    end
+  end
+
+  def edit
+    @project = Project.find(params[:id])
+  end
+
 end
