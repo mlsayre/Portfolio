@@ -11,7 +11,7 @@ feature "I want to sign out of the site" do
 
     click_on "Sign Out"
 
-    page.text.must_include "successfully signed out"
+    page.text.must_include "Signed out successfully"
 
   end
 end

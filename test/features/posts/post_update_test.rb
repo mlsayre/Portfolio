@@ -4,7 +4,7 @@ feature "updating a post" do
   scenario "changes text as expected" do
 
     # post = Post.create(title: posts(:mj).title, content: posts(:mj).content)
-
+    sign_in_user
     visit post_path(posts(:cd).id)
     # the old way of doing it - finding first show link
     # first(:link, "Show Post").click

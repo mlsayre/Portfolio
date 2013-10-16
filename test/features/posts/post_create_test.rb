@@ -4,6 +4,7 @@ feature "creating a post" do
   scenario "works with valid data" do
 
     #Given a completed post form
+    sign_in_user
     visit posts_path
     click_on "New Post"
     fill_in 'Title', with: posts(:mj).title
