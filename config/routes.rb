@@ -1,6 +1,11 @@
 Portfolio::Application.routes.draw do
+  devise_for :controllers
+
+  devise_for :users
+
   resources :posts
   resources :projects
+  match 'users/sign_out' => 'users#sign_out'
 
 
   # The priority is based upon order of creation:
@@ -52,7 +57,7 @@ Portfolio::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#welcome'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 
