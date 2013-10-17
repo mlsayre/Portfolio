@@ -5,8 +5,11 @@ feature "creating a post" do
 
     #Given a completed post form
     sign_in_user
-    visit posts_path
-    click_on "New Post"
+    visit new_post_path
+    #save_and_open_page
+    #click_on "Blog Posts"
+    #click_on "New Post"
+    #save_and_open_page
     fill_in 'Title', with: posts(:mj).title
     fill_in 'Content', with: posts(:mj).content
 
@@ -20,7 +23,8 @@ feature "creating a post" do
 
     # And a success message
     page.text.must_include 'Post was successfully created'
-
+    assert page.has_css? "#author"
+    page.text.must_include users(:one).email
 
   end
 end
