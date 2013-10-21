@@ -12,6 +12,7 @@ gem 'minitest-rails-capybara'
 gem 'libv8'
 gem 'therubyracer'
 gem 'devise'
+gem 'pundit'
 
 group :production do
   gem 'pg'

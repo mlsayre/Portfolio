@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
 
-
+  rescue_from Pundit::NotAuthorizedError, :with => :record_not_found
   before_filter :authenticate_user!, except: [:index, :show]
   def index
     @posts = Post.all
@@ -45,7 +45,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
+    authorize @post
     current_user.posts << @post
+
 
     respond_to do |format|
       if @post.save
@@ -84,5 +86,10 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def record_not_found
+    redirect_to root_path, :alert => "Couldn't create post."
   end
 end
