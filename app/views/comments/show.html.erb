@@ -21,16 +21,6 @@
 </p>
 
 <p>
-  <b>User agent:</b>
-  <%= @comment.user_agent %>
-</p>
-
-<p>
-  <b>Referrer:</b>
-  <%= @comment.referrer %>
-</p>
-
-<p>
   <b>Content:</b>
   <%= @comment.content %>
 </p>
@@ -41,5 +31,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_comment_path(@comment) %> |
-<%= link_to 'Back', comments_path %>
+<%= link_to 'Edit', edit_post_comment_path(@comment) %> |
+<%= link_to 'Back', post_comments_path %>
