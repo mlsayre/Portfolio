@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Author:</b>
+  <%= @comment.author %>
+</p>
+
+<p>
+  <b>Author url:</b>
+  <%= @comment.author_url %>
+</p>
+
+<p>
+  <b>Author email:</b>
+  <%= @comment.author_email %>
+</p>
+
+<p>
+  <b>User ip:</b>
+  <%= @comment.user_ip %>
+</p>
+
+<p>
+  <b>User agent:</b>
+  <%= @comment.user_agent %>
+</p>
+
+<p>
+  <b>Referrer:</b>
+  <%= @comment.referrer %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @comment.content %>
+</p>
+
+<p>
+  <b>Approved:</b>
+  <%= @comment.approved %>
+</p>
+
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

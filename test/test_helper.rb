@@ -29,6 +29,14 @@ def sign_in(user)
   click_on "Sign in"
 end
 
+def new_comment
+  visit post_path(posts(:cd).id)
+  fill_in :comment_author, with: "Jerky Jerkface"
+  fill_in :comment_email, with: "Jerk@example.com"
+  fill_in :comment_content, with: "Your post sucks and I hate you."
+  click_on "Submit Comment"
+end
+
 class ActionDispatch::IntegrationTest
   include Rails.application.routes.url_helpers
   include Capybara::DSL

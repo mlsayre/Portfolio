@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+comment1:
+  author: Frank
+  author_url: flipeedoo.net
+  author_email: frank@flipeedoo.com
+  user_ip: 1.2.3.4
+  user_agent: Mozilla
+  referrer: google.com
+  content: Your page is the best page ever!
+  approved: false
+
+

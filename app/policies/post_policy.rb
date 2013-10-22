@@ -7,21 +7,15 @@ class PostPolicy < ApplicationPolicy
     end
 
     def create?
-      if user.present?
-        user.author? || user.editor?
-      end
+      user.author? || user.editor? if user.present?
     end
 
     def update?
-      if user.present?
-        user.author? || user.editor?
-      end
+      user.author? || user.editor? if user.present?
     end
 
     def publish?
-      if user.present?
-        user.editor?
-      end
+      user.editor? if user.present?
     end
 
     def destroy?

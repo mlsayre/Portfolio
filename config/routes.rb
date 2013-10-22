@@ -1,9 +1,14 @@
 Portfolio::Application.routes.draw do
+
+
   devise_for :controllers
 
   devise_for :users
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
+
   resources :projects
   match 'users/sign_out' => 'users#sign_out'
 
