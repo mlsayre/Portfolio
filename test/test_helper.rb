@@ -22,6 +22,11 @@ def sign_in_user
   click_on "Sign in"
 end
 
+def sign_in(user)
+  visit new_user_session_path
+  fill_in "Email", with: users(user).email
+  fill_in "Password", with: "password"
+  click_on "Sign in"
 end
 
 class ActionDispatch::IntegrationTest
@@ -30,3 +35,4 @@ class ActionDispatch::IntegrationTest
 end
 
 Turn.config.format = :outline
+end

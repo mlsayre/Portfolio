@@ -39,6 +39,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    # authorize @post
   end
 
   # POST /posts
@@ -64,6 +65,7 @@ class PostsController < ApplicationController
   # PUT /posts/1.json
   def update
     @post = Post.find(params[:id])
+    authorize @post
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -80,10 +82,11 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post = Post.find(params[:id])
+    authorize @post
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_url, notice: "Post was deleted." }
       format.json { head :no_content }
     end
   end

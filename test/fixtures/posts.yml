@@ -5,12 +5,22 @@ mj:
   title: Michael Jordan
   content: Best basketballer ever!
   author: one
+  published: true
+
 cd:
   title: Clyde Drexler
   content: The Glide! Woot!
   author: one
+  published: true
 
 tp:
   title: Terry Porter
   content: Best point guard evar!
   author: one
+  published: true
+
+jk:
+  title: Jerome Kersey
+  content: Mr. Hustle
+  author: one
+  published: false
