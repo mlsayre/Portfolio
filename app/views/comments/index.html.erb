@@ -25,9 +25,9 @@
     <td><%= comment.referrer %></td>
     <td><%= comment.content %></td>
     <td><%= comment.approved %></td>
-    <td><%= link_to 'Show', [@post, post_comment_path(@comment)] %></td>
-    <td><%= link_to 'Edit', edit_post_comment_path(comment) %></td>
-    <td><%= link_to 'Destroy', [@post, post_comment_path(@comment)], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', post_comment_path(:id => comment.id) %></td>
+    <td><%= link_to 'Edit', edit_post_comment_path(:id => comment.id) %></td>
+    <td><%= link_to 'Destroy', post_comment_path(:id => comment.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -24,6 +24,7 @@ class CommentsController < ApplicationController
   # GET /comments/new
   # GET /comments/new.json
   def new
+    @post = Post.find(params[:post_id])
     @comment = Comment.new
 
     respond_to do |format|

@@ -13,7 +13,8 @@
   <b>by:</b>
   <%= @post.author.email %>
 </p>
-Comment:
+
+Post New Comment:
 <%= render "comments/form" %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
