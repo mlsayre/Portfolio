@@ -50,5 +50,18 @@ feature "updating a post" do
 
   end
 
+   scenario "visitor role cannot edit a post" do
+
+    # post = Post.create(title: posts(:mj).title, content: posts(:mj).content)
+    visit post_path(posts(:cd).id)
+    # the old way of doing it - finding first show link
+    # first(:link, "Show Post").click
+    click_on "Edit"
+
+    # sign in message
+    page.text.must_include 'You need to sign in'
+
+  end
+
 
 end

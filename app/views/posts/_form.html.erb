@@ -22,7 +22,7 @@
   <% if policy(Post).publish? %>
   <div class="field">
     <%= f.label :published, "Publish" %>
-    <%= f.button :published %>
+    <%= f.check_box :published %>
     <% end %>
   <div class="actions">
     <%= f.submit %>

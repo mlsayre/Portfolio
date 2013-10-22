@@ -21,10 +21,23 @@ feature "deleting a post" do
     # Given a previously created blog post
     visit posts_path
     # When I push the delete button
-    save_and_open_page
+    #save_and_open_page
 
     # Then the post should be deleted
     page.must_have_content "Destroy"
+
+  end
+
+  scenario "visitor role cannot delete other's posts" do
+
+
+    # Given a previously created blog post
+    visit posts_path
+    # When I push the delete button
+    #save_and_open_page
+
+    # Then the post should be deleted
+    page.wont_have_content "Destroy"
 
   end
 end

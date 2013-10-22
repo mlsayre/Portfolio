@@ -5,7 +5,11 @@ class PostsController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, :with => :record_not_found
   before_filter :authenticate_user!, except: [:index, :show]
   def index
-    @posts = Post.all
+    if current_user
+      @posts = policy_scope(Post)
+    else
+      @posts = Post.where(published: true)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
