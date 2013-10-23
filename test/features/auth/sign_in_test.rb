@@ -19,7 +19,7 @@ feature "I want to sign in to the site" do
       { uid: '12345',
         info: { nickname: 'test_twitter_user'},
         })
-    click_on "Sign in with Twitter"
+    page.first(:link, "Sign in with Twitter").click
     save_and_open_page
     page.must_have_content "test_twitter_user, you are signed in!"
   end
