@@ -31,10 +31,10 @@ end
 
 def new_comment
   visit post_path(posts(:cd).id)
-  fill_in :comment_author, with: "Jerky Jerkface"
-  fill_in :comment_author_url, with: "www.example.com"
-  fill_in :comment_author_email, with: "Jerk@example.com"
-  fill_in :comment_content, with: "Your post sucks and I hate you."
+  fill_in "Author", with: "Jerky Jerkface"
+  fill_in "Author url", with: "www.example.com"
+  fill_in "Author email", with: "Jerk@example.com"
+  fill_in "Content", with: "Your post sucks and I hate you."
   click_on "Create Comment"
 end
 

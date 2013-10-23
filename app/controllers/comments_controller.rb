@@ -39,6 +39,7 @@ class CommentsController < ApplicationController
   def edit
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    authorize @comment
   end
 
   # POST /comments
@@ -63,13 +64,14 @@ class CommentsController < ApplicationController
   def update
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    authorize @comment
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
         format.html { redirect_to [@post, @comment], notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: "edit", notice: 'You are not allowed to edit this comment.' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
@@ -80,6 +82,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    authorize @comment
 
     respond_to do |format|
       format.html { redirect_to comments_url }

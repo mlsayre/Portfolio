@@ -28,12 +28,13 @@
     <%= f.text_area :content %>
   </div>
 
-  <div class="field">
-    <%= f.label :approved, "Approve" %>
-    <%= f.check_box :approved %>
 
-  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<div class="field">
+  <% if policy(Comment).approve? %>
+      <%= f.label :approved, "Approve this comment" %>
+      <%= f.check_box :approved %>
+  <% end %>
 <% end %>

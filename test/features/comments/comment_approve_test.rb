@@ -1,28 +1,14 @@
 require "test_helper"
 
 feature "approving a comment" do
-  scenario "author role can approve a comment" do
-
-    #
+  scenario "editor role can approve any comment" do
     new_comment
-    sign_in(:author)
+    sign_in(:editor)
     visit post_path(posts(:cd).id)
     #save_and_open_page
 
-    click_on "Edit"
-    fill_in 'Title', with: posts(:cd).title
-    fill_in 'Content', with: posts(:cd).content
-
-    # When I submit the form
-    click_on 'Update Post'
-
     # Then the post should be changed
-    page.text.must_include posts(:cd).title
-    page.text.must_include posts(:cd).content
-
-
-    # And a success message
-    page.text.must_include 'Post was successfully updated'
+    page.text.must_include 'Approve this comment'
 
   end
 end
