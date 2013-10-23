@@ -13,6 +13,7 @@ gem 'libv8'
 gem 'therubyracer'
 gem 'devise'
 gem 'pundit'
+gem 'omniauth-twitter'
 
 group :production do
   gem 'pg'

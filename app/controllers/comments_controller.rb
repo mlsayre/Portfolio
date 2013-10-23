@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+
   def index
     @comments = Comment.all
 
@@ -13,7 +14,9 @@ class CommentsController < ApplicationController
   # GET /comments/1
   # GET /comments/1.json
   def show
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
+    #authorize @comment
 
     respond_to do |format|
       format.html # show.html.erb
@@ -21,8 +24,7 @@ class CommentsController < ApplicationController
     end
   end
 
-  # GET /comments/new
-  # GET /comments/new.json
+
   def new
     @post = Post.find(params[:post_id])
     @comment = Comment.new
@@ -35,6 +37,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
   end
 
@@ -58,11 +61,12 @@ class CommentsController < ApplicationController
   # PUT /comments/1
   # PUT /comments/1.json
   def update
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
 
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
-        format.html { redirect_to @comment, notice: 'Comment was successfully updated.' }
+        format.html { redirect_to [@post, @comment], notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
