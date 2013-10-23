@@ -6,7 +6,7 @@ feature "making a comment" do
     #
     new_comment
     #visit post_path(posts(:cd).id)
-    save_and_open_page
+    #save_and_open_page
 
     # Then the comment should be visible
     page.text.must_include "Jerky Jerkface"

@@ -14,6 +14,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'pundit'
 gem 'omniauth-twitter'
+gem 'figaro'
 
 group :production do
   gem 'pg'
