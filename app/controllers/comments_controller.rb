@@ -1,9 +1,13 @@
 class CommentsController < ApplicationController
+
   # GET /comments
   # GET /comments.json
+  before_filter :load_commentable
 
   def index
-    @comments = Comment.all
+    @post = Post.find(params[:post_id])
+    @project = Project.find(params[:project_id])
+    @comments = @commentable.comments
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +19,8 @@ class CommentsController < ApplicationController
   # GET /comments/1.json
   def show
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
+    @project = Project.find(params[:project_id])
+    @comment = @commentable.comments.find(params[:id])
     #authorize @comment
 
     respond_to do |format|
@@ -27,7 +32,7 @@ class CommentsController < ApplicationController
 
   def new
     @post = Post.find(params[:post_id])
-    @comment = Comment.new
+    @comment = @commentable.comments.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,25 +43,23 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @post = Post.find(params[:post_id])
-    @comment = Comment.find(params[:id])
+    @comment = @commentable.comments.find(params[:id])
     authorize @comment
   end
 
   # POST /comments
   # POST /comments.json
   def create
-    @post = Post.find(params[:post_id])
-    @comment = Comment.create(params[:comment])
+    #@post = Post.find(params[:post_id])
+    @comment = @commentable.comments.new(comment_params)
 
-    respond_to do |format|
       if @comment.save
-        format.html { redirect_to [@post, @comment], notice: 'Comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
+        flash[:notice] = "Comment is awaiting moderation"
+        redirect_to @commentable, notice: "Comment is awaiting moderation."
       else
-        format.html { render action: "new" }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
+        instance_variable_set("@#{@resource.singularize}".to_sym, @commentable)
+        render template: "#{@resource}/show"
       end
-    end
   end
 
   # PUT /comments/1
@@ -88,5 +91,21 @@ class CommentsController < ApplicationController
       format.html { redirect_to comments_url }
       format.json { head :no_content }
     end
+  end
+
+private
+
+  def comment_params
+    params.require(:comment).permit(:author,
+                                    :author_url,
+                                    :author_email,
+                                    :content,
+                                    :referrer,
+                                    :commentable_id)
+  end
+
+  def load_commentable
+    @resource, id = request.path.split('/')[1,2]
+    @commentable = @resource.singularize.classify.constantize.find(id)
   end
 end

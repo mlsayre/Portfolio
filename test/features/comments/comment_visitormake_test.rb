@@ -5,7 +5,7 @@ feature "making a comment" do
     new_comment
 
     # And a success message
-    page.text.must_include 'Comment was successfully created.'
+    page.text.must_include 'Comment is awaiting moderation.'
 
   end
 

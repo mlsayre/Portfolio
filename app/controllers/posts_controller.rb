@@ -21,13 +21,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @comment = Comment.new(params[:comment])
-    #@post = Post.includes(:comments).find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @post }
-    end
+    @commentable = @post
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
 
   # GET /posts/new

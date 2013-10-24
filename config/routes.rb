@@ -1,13 +1,18 @@
 Portfolio::Application.routes.draw do
 
 
-  devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
+  devise_for :users, controllers: {registrations: "users/registrations",
+                                  passwords: "users/passwords",
+                                  omniauth_callbacks: "omniauth_callbacks"}
 
   resources :posts do
     resources :comments
   end
 
-  resources :projects
+  resources :projects do
+    resources :comments
+  end
+
   match 'users/sign_out' => 'users#sign_out'
 
 

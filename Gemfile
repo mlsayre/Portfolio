@@ -15,6 +15,7 @@ gem 'devise'
 gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
+gem 'strong_parameters'
 
 group :production do
   gem 'pg'
