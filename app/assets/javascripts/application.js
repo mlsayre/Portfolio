@@ -11,9 +11,10 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
 //= require_tree .
-//= require twitter/bootstrap
 //= require bootstrap
-//= require sidebar
+//= require fastclick
+//= require jquery.smooth-scroll.min
+//= require jquery.mixitup.min
+//= require main
 //

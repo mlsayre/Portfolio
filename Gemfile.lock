@@ -33,9 +33,6 @@ GEM
     arel (3.0.2)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
-    bootstrap-sass-rails (3.0.0.3)
-      railties (>= 3.1.0)
-      sass-rails (>= 3.1.0)
     builder (3.0.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -50,6 +47,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    commonjs (0.2.7)
     devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -75,6 +73,13 @@ GEM
     json (1.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
+    less (2.4.0)
+      commonjs (~> 0.2.7)
+    less-rails (2.4.2)
+      actionpack (>= 3.1)
+      less (~> 2.4.0)
+    less-rails-bootstrap (3.0.4)
+      less-rails (~> 2.4.2)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -198,12 +203,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass-rails
   coffee-rails (~> 3.2.1)
   devise
   figaro
   jquery-rails
   launchy
+  less-rails-bootstrap
   libv8
   minitest-rails
   minitest-rails-capybara

@@ -1,14 +1,26 @@
-<% @projects.each do |project| %>
-  <div class="project" id ="<%= dom_id(project)%>">
-    <h3><%= project.name %></h3>
-    <p><%= project.technologies_used %></p>
-    <div class="nav">
-      <%= link_to 'Show', project %>
-      <%= link_to 'Edit Project', edit_project_path(project) %>
-      <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?'} %>
+<% content_for :projects_sidebar do %>
+  <% @projects.each do |project| %>
+    <div class="project" id ="<%= dom_id(project)%>">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+        <div class="panel panel-default item">
+          <div class="panel-heading">
+            <%= link_to(image_tag("/assets/toppottyScreenShot.png", :class => "img-responsive item-img"), project_path(project)) %>
+          </div>
+          <div class="panel-body">
+            <h4 class="item-title"><%= link_to project.name, project_path(project) %></h4>
+            <p class="item-description"><%= project.technologies_used %></p>
+            <div class="nav">
+              <%= link_to 'Show', project %>
+              <%= link_to 'Edit Project', edit_project_path(project) %>
+              <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?'} %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-<% end %>
 
-<br />
-<%= link_to 'New Project', new_project_path %>
+  <% end %>
+
+  <br />
+  <%= link_to 'New Project', new_project_path %>
+<% end %>
