@@ -1,17 +1,20 @@
+<% content_for :hidefrontpage do %>
+  #front_welcome {display: none}
+<% end %>
+
 <p id="notice"><%= notice %></p>
+<div class="col-lg-12">
+  <h1><p>
+    <%= image_tag("/assets/toppottyScreenShot.png", :class => "img-responsive item-img") %>
+    <b>Name:</b>
+    <%= @project.name %>
+  </p></h1>
+  <h1 class="spacer">___</h1>
 
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
+  <p class="work">
+    <b>Technologies Used:</b>
+    <%= @project.technologies_used %>
+  </p>
 
-<p>
-  <b>Technologies Used:</b>
-  <%= @project.technologies_used %>
-</p>
-
-<!-- Post New Comment:
-<%= render "comments/form" %> -->
-
-<%= link_to 'Edit Project', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+  <%= link_to 'Edit Project', edit_project_path(@project) %> |
+  <%= link_to 'Back', projects_path %>

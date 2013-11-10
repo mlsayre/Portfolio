@@ -1,4 +1,8 @@
 class ProjectsController < ApplicationController
+  def frontpage
+    @projects = Project.all
+  end
+
   def index
     @projects = Project.all
   end
@@ -19,6 +23,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @projects = Project.all
     @project = Project.find(params[:id])
     @commentable = @project
     @comments = @commentable.comments

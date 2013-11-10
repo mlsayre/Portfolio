@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require_tree .
 //= require bootstrap
 //= require fastclick
 //= require jquery.smooth-scroll.min
