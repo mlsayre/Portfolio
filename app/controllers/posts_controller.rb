@@ -50,6 +50,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @posts = Post.all
+    @lastpost = Post.last
     @post = Post.find(params[:id])
     # authorize @post
   end
@@ -99,11 +100,10 @@ class PostsController < ApplicationController
   def destroy
     @posts = Post.all
     @post = Post.find(params[:id])
-    authorize @post
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was deleted." }
+      format.html { redirect_to posts_path, notice: "Post was deleted." }
       format.json { head :no_content }
     end
   end

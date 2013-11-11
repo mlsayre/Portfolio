@@ -281,10 +281,10 @@ body,
   }
 }
 .row.bottom .col-left section .article-date {
-  color: #cccccc;
+  color: #909e8b;
   margin-bottom: 5px;
   font-style: italic;
-  font-size: 24px;
+  font-size: 14px;
 }
 .row.bottom .col-left section .article-tags a,
 .row.bottom .col-left section .item-tags a {
@@ -433,7 +433,7 @@ body,
   margin: 0;
 }
 .row.bottom .col-right section .media-body .article-date {
-  color: #cccccc;
+  color: #909e8b;
   margin-bottom: 5px;
 }
 .row.bottom .col-right section .media-body .label {

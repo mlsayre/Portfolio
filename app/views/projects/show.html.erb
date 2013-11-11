@@ -15,6 +15,7 @@
     <b>Description:</b>
     <%= @project.long_desc %>
   </p>
-
-  <%= link_to 'Edit Project', edit_project_path(@project) %> |
-  <%= link_to 'Back', root_path %>
+  <% if current_user.present? %>
+    <%= link_to 'Edit Project', edit_project_path(@project) %> |
+    <%= link_to 'Back', root_path %>
+  <% end %>
