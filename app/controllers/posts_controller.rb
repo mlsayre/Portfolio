@@ -1,15 +1,19 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
+  layout 'blog'
 
   rescue_from Pundit::NotAuthorizedError, :with => :record_not_found
   before_filter :authenticate_user!, except: [:index, :show]
+  def frontblog
+    @posts = Post.all
+    @lastpost = Post.last
+  end
+
   def index
-    if current_user
-      @posts = policy_scope(Post)
-    else
-      @posts = Post.where(published: true)
-    end
+    @posts = Post.all
+    @lastpost = Post.last
+    @post = Post.last(params[:id])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -20,6 +24,8 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = Post.all
+    @lastpost = Post.last
     @post = Post.find(params[:id])
     @commentable = @post
     @comments = @commentable.comments
@@ -29,6 +35,9 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.json
   def new
+    @lastpost = Post.last
+    @posts = Post.all
+    @projects = Project.all
     @post = Post.new
     #current_user.posts << @post
 
@@ -40,6 +49,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @posts = Post.all
     @post = Post.find(params[:id])
     # authorize @post
   end
@@ -47,8 +57,11 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
+    @posts = Post.all
+    @lastpost = Post.last
+    @projects = Project.all
     @post = Post.new(params[:post])
-    authorize @post
+    #authorize @post
     current_user.posts << @post
 
 
@@ -66,8 +79,9 @@ class PostsController < ApplicationController
   # PUT /posts/1
   # PUT /posts/1.json
   def update
+    @posts = Post.all
     @post = Post.find(params[:id])
-    authorize @post
+    #authorize @post
 
     respond_to do |format|
       if @post.update_attributes(params[:post])
@@ -83,6 +97,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   # DELETE /posts/1.json
   def destroy
+    @posts = Post.all
     @post = Post.find(params[:id])
     authorize @post
     @post.destroy

@@ -8,10 +8,12 @@ class ProjectsController < ApplicationController
   end
 
   def new
+    @projects = Project.all
     @project = Project.new
   end
 
   def create
+    @projects = Project.all
     @project = Project.new(params[:project])
     if @project.save
       flash[:notice] = "Project was successfully added."
@@ -31,6 +33,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
+    @projects = Project.all
     @project = Project.find(params[:id])
 
     if @project.update_attributes(params[:project])
@@ -42,10 +45,12 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @projects = Project.all
     @project = Project.find(params[:id])
   end
 
   def destroy
+    @projects = Project.all
     @project = Project.find(params[:id])
     @project.destroy
 

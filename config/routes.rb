@@ -13,7 +13,7 @@ Portfolio::Application.routes.draw do
     resources :comments
   end
 
- # match 'users/sign_out' => 'users#sign_out'
+ match 'users/sign_in', to: 'users#sign_in', via: :all
 
 
   # The priority is based upon order of creation:

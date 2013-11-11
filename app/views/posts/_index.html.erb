@@ -1,0 +1,28 @@
+
+<% @posts.reverse_each do |post| %>
+  <div class="media">
+    <p class="pull-left">
+      <%= link_to(image_tag(post.postindexpic_url, :class => "media-object"), post_path(post)) %>
+    </p>
+    <div class="media-body">
+      <h4 class="media-heading">
+        <%= post.title %>
+      </h4>
+      <p class="article-category">
+        <%= post.category %>
+      </p>
+      <p class="article-date">
+        <%= post.created_at.strftime("%b %d, %Y") %> at <%= post.created_at.strftime("%l:%M%P") %>
+      </p>
+      <p class="article-description">
+        <%= post.summary %>
+      </p>
+
+    </div>
+  </div>
+
+<% end %>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>

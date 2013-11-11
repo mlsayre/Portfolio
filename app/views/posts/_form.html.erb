@@ -16,14 +16,30 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_field :content %>
+    <%= f.label :creator %><br />
+    <%= f.text_field :creator %>
   </div>
-  <% if policy(Post).publish? %>
+  <div class="field">
+    <%= f.label :postindexpic_url %><br />
+    <%= f.text_field :postindexpic_url %>
+  </div>
+   <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :summary %><br />
+    <%= f.text_area :summary %>
+  </div>
+  <% # if policy(Post).publish? %>
   <div class="field">
     <%= f.label :published, "Publish" %>
     <%= f.check_box :published %>
-    <% end %>
+    <% # end %>
   <div class="actions">
     <%= f.submit %>
   </div>
