@@ -18,16 +18,20 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+    <%= f.label :projecturl, "Project URL http://..." %><br />
+    <%= f.text_field :projecturl %>
+  </div>
+  <div class="field">
     <%= f.label :short_desc %><br />
-    <%= f.text_area :short_desc %>
+    <%= f.text_area :short_desc, size: "40x3" %>
   </div>
   <div class="field">
     <%= f.label :long_desc %><br />
     <%= f.text_area :long_desc %>
   </div>
   <div class="field">
-    <%= f.label :projectpic_url %><br />
-    <%= f.text_area :projectpic_url %>
+    <%= f.label :projectpic_url, "Project picture URL http://..." %><br />
+    <%= f.text_area :projectpic_url, size: "40x2" %>
   </div>
   <div class="actions">
     <%= f.submit %>

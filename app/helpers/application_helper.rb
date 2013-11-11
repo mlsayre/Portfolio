@@ -7,4 +7,9 @@ module ApplicationHelper
     when :alert then "alert alert-error"
     end
   end
+
+  def dat_markdown(text)
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :no_intra_emphasis => true, :autolink => true, :footnotes => true, :hard_wrap => true)
+    markdown.render(text).html_safe
+  end
 end

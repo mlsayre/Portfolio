@@ -19,7 +19,7 @@
   <!--article content-->
   <p class="article-description"><strong><%= @post.summary %></strong>
   <br><br>
-  <%= @post.content %>
+  <%= dat_markdown(@post.content) %>
   </p>
 
   <!--navigation-->

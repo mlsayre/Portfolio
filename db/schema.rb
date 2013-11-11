@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131110200803) do
+ActiveRecord::Schema.define(:version => 20131111091759) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20131110200803) do
     t.datetime "updated_at",     :null => false
     t.string   "long_desc"
     t.string   "projectpic_url"
+    t.string   "projecturl"
   end
 
   create_table "users", :force => true do |t|

@@ -16,6 +16,7 @@ gem 'pundit'
 gem 'omniauth-twitter'
 gem 'figaro'
 gem 'strong_parameters'
+gem 'redcarpet'
 
 group :production do
   gem 'pg'
