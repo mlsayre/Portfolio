@@ -44,7 +44,7 @@
                             <!--article content-->
                             <p class="article-description"><strong><%= @lastpost.summary %></strong>
                             <br><br>
-                            <%= @lastpost.content %>
+                            <%= dat_markdown(@lastpost.content) %>
                             </p>
 
                             <!--navigation-->
