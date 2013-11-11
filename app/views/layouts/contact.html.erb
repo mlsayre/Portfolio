@@ -1,42 +1,20 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <title>Contact - Eldun Malosanu</title>
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/style.css" rel="stylesheet" media="screen">
-    
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="js/bootstrap/html5shiv.js"></script>
-      <script src="js/bootstrap/respond.min.js"></script>
-    <![endif]-->
-    </head>
-    <body class="page-contact">
-        <div class="container" id="container">
-        
-            <div class="row top">
-                <div class="col-lg-8 col-md-8 col-sm-7 col-left">
-                    <div class="name"><a href="index.html">Eldun Malosanu</a></div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-5 col-right">
-                    <nav>
-                        <ul class="list-inline" id="menu">
+
+<%= render '/layouts/layouttop' %>
+
+    <%= render 'layouts/layouttitle' %>
                             <li>
-                                <a href="index.html">work</a>
+                                <%= link_to "work", root_path %>
                             </li><!--
                             --><li>
-                                <a href="blog.html">blog</a>
+                                 <%= link_to "blog", posts_path %>
                             </li><!--
-                            --><li class=" active">
-                                <a href="contact.html">contact</a>
+                            --><li class="active">
+                                 <%= link_to "contact", contact_url %>
                             </li><!--
                             --><li>
-                                <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="facebook"></a>
-                                <a href="#"><img class="social" src="img/icon/icon-twitter.png" alt="twitter"></a>
+                                <%= link_to(image_tag("/assets/icon-linkedin.png", :class => "social"), "http://www.linkedin.com/in/mlsayre", :target => "_blank") %>
+                                <%= link_to(image_tag("/assets/github-128.png", :class => "social"), "http://github.com/mlsayre", :target => "_blank") %>
                             </li>
                         </ul>
                     </nav>
@@ -47,11 +25,11 @@
                     <section>
                         <div class="row">
                             <div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2">
-                                
+
                                 <!--input contact-->
                                 <h1>Contact</h1>
                                 <h1 class="spacer">___</h1>
-                                <p>Utque aegrum corpus quassari etiam levibus solet offensis, ita animus eius angustus et tener, quicquid increpuisset, ad salutis suae dispendium existim.</p>
+                                <p>If you have any web development questions or if you are a company in need of a friendly, efficient, and enthusiastic web developer, please feel free to send me an email. I promise to reply as soon as someone breaks me out of the carbonite and my wookie reads me your message.</p>
                                 <hr>
                                 <div class="panel panel-default contact btn-footer">
                                     <div class="panel-body">
@@ -71,7 +49,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </section>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-5 col-right">
@@ -79,46 +57,45 @@
                     <section>
                         <div class="row">
                             <div class="col-lg-12">
-                            
+
                                 <!--panel contact-->
                                 <div class="panel panel-default item">
                                     <div class="panel-heading">
                                         <a href="#">
-                                            
-                                            <!--your image-->    
-                                            <img class="img-responsive item-img" src="img/contact/avatar-contact.jpg" alt="Avatar">
-                                            
+
+                                            <!--your image-->
+                                            <img class="img-responsive item-img" src="https://s3-us-west-2.amazonaws.com/portmls/portfolio/mefrozen.jpg" alt="Me. Frozen.">
+
                                         </a>
                                     </div>
                                     <div class="panel-body">
-                                    
+
                                         <!--your name-->
-                                        <a href="#"><h4 class="item-title">Eldun malosanu</h4></a>
-                                        
+                                        <a href="#"><h4 class="item-title">Matt Sayre</h4></a>
+
                                         <!--your profession / where you live-->
-                                        <p class="item-category">Freelance web designer, in Los Angeles</p>
-                                        
-                                        <!--your descritpion / why should we contact you-->
-                                        <p class="item-description">Iam virtutem ex consuetudine vitae sermonisque nostri nostri nostri, quicquid increpuisset, ad salutis suae dispendium existim.</p>
+                                        <p class="item-category">Web Developer, Seattle</p>
+
+                                        <!--your descritpion -->
+                                        <p class="item-description">I am a professional web developer versed in Ruby on Rails, HTML, CSS, Javascript, jQuery, and various other technologies. I look forward to every web production or design challenge no matter how big or small. The process of finding solutions is both exhilarating and addictive and I wouldn't trade my job for any other. Let's talk!</p>
                                         <hr>
-                                        
+
                                         <!--social networks-->
                                         <div class="item-social text-center">
-                                            <a href="#"><img class="social" src="img/icon/icon-facebook.png" alt="Facebook"></a>
-                                            <a href="#"><img class="social bis" src="img/icon/icon-twitter.png" alt="Twitter"></a>
-                                            <a href="#"><img class="social" src="img/icon/icon-google.png" alt="Google plus"></a>
-                                            <a href="#"><img class="social bis" src="img/icon/icon-linkedin.png" alt="Linkedin"></a>
+                                            <%= link_to(image_tag("/assets/icon-linkedin.png", :class => "social"), "http://www.linkedin.com/in/mlsayre", :target => "_blank") %>
+                                            <%= link_to(image_tag("/assets/github-128.png", :class => "social"), "http://github.com/mlsayre", :target => "_blank") %>
+
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
                     </section>
                 </div>
-            </div>                        
-        </div>  
-                
+            </div>
+        </div>
+
         <script src="js/jquery.js"></script>
         <!-- FASTCLICK -->
         <script src="js/plugins/fastclick/fastclick.js"></script>
@@ -126,7 +103,7 @@
         <script src="js/plugins/smooth-scroll/jquery.smooth-scroll.min.js"></script>
         <!-- MIXITUP -->
         <script src="js/plugins/mixitup/jquery.mixitup.min.js"></script>
-        
+
         <script src="js/main.js"></script>
     </body>
 </html>

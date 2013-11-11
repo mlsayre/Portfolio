@@ -15,6 +15,8 @@ Portfolio::Application.routes.draw do
 
  match 'users/sign_in', to: 'users#sign_in', via: :all
 
+get '/contact', to: 'contact#index', via: :all
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

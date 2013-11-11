@@ -26,4 +26,5 @@
 <br />
 <% if current_user.present? %>
   <%= link_to 'New Post', new_post_path %>
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
 <% end %>
