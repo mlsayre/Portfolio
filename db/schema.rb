@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131111091759) do
+ActiveRecord::Schema.define(:version => 20131112000243) do
 
   create_table "comments", :force => true do |t|
     t.string   "author"
@@ -65,9 +65,9 @@ ActiveRecord::Schema.define(:version => 20131111091759) do
   create_table "projects", :force => true do |t|
     t.string   "name"
     t.string   "short_desc"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-    t.string   "long_desc"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.text     "long_desc",      :limit => 255
     t.string   "projectpic_url"
     t.string   "projecturl"
   end
